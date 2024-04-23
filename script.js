@@ -37,10 +37,35 @@ let interval = setInterval(() => {
                 //Borrar el último carácter del texto
                 element.innerText = element.innerText.substring(0, element.innerText.length - 1);
             }
-        }, 100);
+        }, 80);
     } else {
         //Si no se ha escrito toda la palabra, se agrega la prox letra
         wordIndex += 1;
         element.innerText = wordList[listIndex].substring(0, wordIndex);
     }
 }, 200); //tiempo animación letras
+
+
+//Fondo estrellado
+
+let body = document.getElementsByTagName("body")[0];
+
+for (let index = 1; index <= 2000; index++){
+
+    let element = document.createElement("div");
+
+    let length = (Math.random()*3) + "px";
+
+    element.style.height = length;
+    element.style.width = length;
+    element.style.borderRadius = "50%";
+    element.style.position = "fixed";
+    element.style.top = (Math.random()*100 + 1) + "%";
+    element.style.left = (Math.random()*100 + 1) + "%";
+
+    element.style.backgroundColor = "white";
+
+    body.appendChild(element);
+}
+
+body.style.backgroundColor = "black";
